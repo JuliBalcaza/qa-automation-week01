@@ -3,6 +3,7 @@ import { createUser, getUserData, deleteUser } from "../utils/apiCommands.js";
 describe('API commands', () => {
     let userId: number;
     let userEmail: string;
+    let userName: string;
 
     afterAll(async () => {
         await deleteUser(userId);
@@ -22,8 +23,11 @@ describe('API commands', () => {
     it('Should GET command', async () => {
         const userData =  await getUserData(userId);
         userEmail = userData.email;
+        userName = userData.name;
 
         console.log("The user email is: ", await userEmail);
+        console.log("The user name is: ", await userName);
+        
         
     });
 
